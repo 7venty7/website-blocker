@@ -1,7 +1,7 @@
 let button = document.getElementById("submit");
 var url_list = [];
 
-if (localStorage.getItem("enabled") === true) {
+if (localStorage.getItem("enabled") === "true") {
     document.getElementById("toggle").click();
 }
 
@@ -16,7 +16,7 @@ button.addEventListener('click', () => {
     var send_enable = enabled ? "true" : "false";
 
     localStorage.setItem("urls", url);
-    localStorage.setItem("enabled", enabled);
+    localStorage.setItem("enabled", send_enable);
 
     chrome.storage.sync.set({"urls": url, "enabled": send_enable}, () => {
         console.log(url);
