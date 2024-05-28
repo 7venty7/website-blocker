@@ -2,7 +2,7 @@
 A simple chrome extension which blocks distracting websites.
 
 #### Installation:
-Download
+Download\n
 Go to manage extensions
 Enable developer mode
 Click load from unpacked and select the folder
