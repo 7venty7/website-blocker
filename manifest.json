@@ -1,0 +1,22 @@
+{
+    "name": "Bad Website Blocker",
+    "version": "1.0.1",
+    "description": "Blocks distracting websites. Escape the haze...",
+    "manifest_version": 3,
+    "author": "Miles Ng",
+
+    "permissions": ["tabs", "storage", "webRequest"],
+
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Bad Website Blocker"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["bg_script.js"],
+            "run_at": "document_start"
+        }
+    ]
+}

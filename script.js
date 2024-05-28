@@ -1,21 +1,16 @@
 let button = document.getElementById("submit");
 var url_list = [];
 
+if (localStorage.getItem("urls") !== null) {
+    document.getElementById("url-list").value = localStorage.getItem("urls");
+}
+
 button.addEventListener('click', () => {
     var url = document.getElementById("url-list").value.toString().toLowerCase();
 
-    url_list = url.replace(/\s+/g, '').split(",");
-    url_list.forEach((url) => console.log(url));
-});
+    localStorage.setItem("urls", url);
 
-setInterval(() => {
-    var cur = window.location.href;
-    if (url_list.length > 0) {
-        url_list.forEach((url) => {
-            if (url == cur) {
-                console.log("blocked");
-                window.location.replace("https://tenor.com/en-GB/view/linus-lost-crying-smoke-fog-gif-9298551");
-            }
-        })
-    }
-})
+    chrome.storage.sync.set({"urls": url}, () => {
+        console.log(url);
+    });
+});
