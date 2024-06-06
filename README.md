@@ -13,5 +13,3 @@ A simple chrome extension which blocks distracting websites.
 
 #### TODO:
 - clean UI
-- add icon
-- add url checking
